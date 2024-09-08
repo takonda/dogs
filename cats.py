@@ -1,9 +1,10 @@
 import requests
 from tkinter import *
+from tkinter import ttk
 from PIL import Image, ImageTk
 from io import BytesIO
 
-from pygame.display import update
+Allowed_tags=['sleep','jamp','fight','black','white','siamese','cute','play','small']
 
 
 def load_image(url):
@@ -21,7 +22,7 @@ def load_image(url):
 
 
 def open_new_window():
-    tag = tag_entry.get()
+    tag = tag_combobox.get()
     url_tag = f'https://cataas.com/cat/{tag}' if tag else "https://cataas.com/cat"
     img = load_image(url_tag)
     if img:
@@ -41,13 +42,6 @@ window=Tk()
 window.title('Котики')
 window.geometry('600x480')
 
-
-tag_entry= Entry()
-tag_entry.pack()
-
-load_button= Button(text='Загрузить по тегу', command=open_new_window)
-load_button.pack()
-
 menu_bar=Menu(window)
 window.config(menu=menu_bar)
 file_menu=Menu(menu_bar, tearoff=0)
@@ -58,5 +52,13 @@ file_menu.add_command(label='Выход',command=exit)
 
 url="https://cataas.com/cat"
 
+tag_label=Label(text='Выбери тег')
+tag_label.pack()
+
+tag_combobox = ttk.Combobox(values=Allowed_tags)
+tag_combobox.pack()
+
+load_button= Button(text='Загрузить по тегу', command=open_new_window)
+load_button.pack()
 
 window.mainloop()
