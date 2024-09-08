@@ -1,9 +1,9 @@
-import requests
+import requests # чтобы загружать изображения из интернета
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox as mb
-from PIL import Image, ImageTk
-from io import BytesIO
+from PIL import Image, ImageTk # чтобы обрабатывать изображения
+from io import BytesIO # чтобы обрабатывать картинку
 
 from bottle import response
 
@@ -33,12 +33,19 @@ def show_image():
         except requests.RequestException as e:
             mb.showerror('Ошибка',f'Не удалось загрузить изображение:{e}')
 
+
+
+def exit():
+    window.destroy()
+
+
 window = Tk()
 window.title('Собачки')
 window.geometry('360x420')
 
 label=Label()
 label.pack(padx=10, pady=10)
+
 
 button=Button(text='Загрузить изображение',command=show_image)
 button.pack(padx=10,pady=10)
