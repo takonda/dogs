@@ -58,7 +58,7 @@ label.pack(padx=10, pady=10)
 button=ttk.Button(text='Загрузить изображение',command=prog)
 button.pack(padx=10,pady=10)
 
-progress = ttk.Progressbar(mode="determinate", length=300)
+progress = ttk.Progressbar(mode="determinate", length=300) # полоса загрузки
 progress.pack(pady=10)
 
 window.mainloop()
