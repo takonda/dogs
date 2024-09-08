@@ -71,11 +71,13 @@ width_label = ttk.Label(text='Ширина:') # метка под спинбок
 width_label.pack(side='left', padx=(10, 0))
 width_spinbox = ttk.Spinbox(from_=200, to=500, increment=50, width=5) # изменение от 200 до 500 с шагом 50, ширина 5
 width_spinbox.pack(side='left', padx=(0, 10))
+width_spinbox.set(300)
 
 height_label = ttk.Label(text='Высота:') # метка под спинбокс высота
 height_label.pack(side='left', padx=(10, 0))
 height_spinbox = ttk.Spinbox(from_=200, to=500, increment=50, width=5)
 height_spinbox.pack(side='left', padx=(0, 10))
+height_spinbox.set(300)
 
 top_level_window=Toplevel(window)
 top_level_window.title('Изображения собачек')
